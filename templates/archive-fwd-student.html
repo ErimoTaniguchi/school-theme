@@ -1,0 +1,33 @@
+<!-- wp:group {"style":{"position":{"type":"sticky","top":"0px"}},"backgroundColor":"custom-primary","layout":{"type":"default"}} -->
+<div class="wp-block-group has-custom-primary-background-color has-background"><!-- wp:template-part {"slug":"header","tagName":"header"} /--></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group"><!-- wp:heading {"level":1,"style":{"spacing":{"padding":{"bottom":"2rem"}},"typography":{"fontStyle":"normal","fontWeight":"400","lineHeight":"1.8"}}} -->
+<h1 class="wp-block-heading" style="padding-bottom:2rem;font-style:normal;font-weight:400;line-height:1.8">Students</h1>
+<!-- /wp:heading -->
+
+<!-- wp:query {"queryId":0,"query":{"perPage":10,"pages":0,"offset":0,"postType":"fwd-student","order":"asc","orderBy":"title","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":null,"parents":[],"excludeCurrent":null,"format":[]},"layout":{"type":"constrained"}} -->
+<div class="wp-block-query"><!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"24px"}},"layout":{"type":"grid","columnCount":3}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0"},"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}}} -->
+<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20);padding-top:0"><!-- wp:post-title {"isLink":true,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"},"spacing":{"padding":{"top":"0","bottom":"0"}},"elements":{"link":{":hover":{"color":{"text":"var:preset|color|custom-hover"}}}}}} /-->
+
+<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"2/3","width":"100%","sizeSlug":"400x500","style":{"spacing":{"padding":{"top":"0"}}}} /-->
+
+<!-- wp:post-terms {"term":"fwd-student-category","prefix":"Speciality: ","fontSize":"small","fontFamily":"noto-serif"} /--></div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:group {"layout":{"inherit":true,"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination --></div>
+<!-- /wp:group --></div>
+<!-- /wp:query --></main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
