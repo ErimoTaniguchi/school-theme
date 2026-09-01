@@ -42,7 +42,7 @@ function school_register_custom_post_types() {
           array(
             'core/button', // Button block
             array(
-              'text' => 'Portfolio' // Default button text
+              'text' => 'See My Portfolio' // Default button text
             )
           )
         )
