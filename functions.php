@@ -25,32 +25,42 @@ function school_setup() {
   // Load style.css in Site and Block Editor
   add_editor_style( get_stylesheet_uri() );
 
-  // // Crop images to 400px by 500px
-  // add_image_size( '400x500', 400, 500, true );
+  // Crop images to 400px by 500px
+  add_image_size( '400x500', 400, 500, true );
 
-  // // Crop images to 200px by 250px
-  // add_image_size( '200x250', 200, 250, true );
+  // Crop images to 200px by 250px
+  add_image_size( '200x250', 200, 250, true );
 
-  // // Crop images to 400px by 200px
-  // add_image_size( '400x200', 400, 200, true );
+  // Crop images to 400px by 200px
+  add_image_size( '400x200', 400, 200, true );
 
-  // // Crop images to 800px by 400px
-  // add_image_size( '800x400', 800, 400, true );
+  // Crop images to 800px by 400px
+  add_image_size( '800x400', 800, 400, true );
 }
 add_action( 'after_setup_theme', 'school_setup' );
 
+function wpb_change_title_text( $title ){
+  $screen = get_current_screen();
 
-// // Make custom sizes selectable from WordPress admin.
-// function mindset_add_custom_image_sizes( $size_names ) {
-// 	$new_sizes = array(
-// 		'400x500' => __( '400x500', 'mindset-theme' ),
-// 		'200x250' => __( '200x250', 'mindset-theme' ),
-// 		'400x200' => __( '400x200', 'mindset-theme' ),
-// 		'800x400' => __( '800x400', 'mindset-theme' ),
-// 	);
-// 	return array_merge( $size_names, $new_sizes );
-// }
-// add_filter( 'image_size_names_choose', 'mindset_add_custom_image_sizes' );
+  if  ( 'fwd-student' == $screen->post_type ) {
+    $title = 'Add student name';
+  }
+
+  return $title;
+}
+add_filter( 'enter_title_here', 'wpb_change_title_text' );
+
+// Make custom sizes selectable from WordPress admin.
+function mindset_add_custom_image_sizes( $size_names ) {
+	$new_sizes = array(
+		'400x500' => __( '400x500', 'mindset-theme' ),
+		'200x250' => __( '200x250', 'mindset-theme' ),
+		'400x200' => __( '400x200', 'mindset-theme' ),
+		'800x400' => __( '800x400', 'mindset-theme' ),
+	);
+	return array_merge( $size_names, $new_sizes );
+}
+add_filter( 'image_size_names_choose', 'mindset_add_custom_image_sizes' );
 
 // Load custom blocks.
 // require get_theme_file_path() . '/mindset-blocks/mindset-blocks.php';
@@ -58,4 +68,4 @@ add_action( 'after_setup_theme', 'school_setup' );
 /**
 * Custom Post Types & Custom Taxonomies
 */
-// require get_template_directory() . '/inc/post-types-taxonomies.php';
+require get_template_directory() . '/inc/post-types-taxonomies.php';
