@@ -36,6 +36,7 @@ function school_setup() {
 
   // Crop images to 800px by 400px
   add_image_size( '800x400', 800, 400, true );
+	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'school_setup' );
 
