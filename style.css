@@ -14,3 +14,133 @@ Text Domain: school-theme
 Update URI : false
 */
 
+/* Elements */
+body {
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+h1::after {
+  content: '';
+  width: 5rem;
+  height: 2px;
+  margin: 0 auto;
+  display: block;
+  background-color: #71003c;
+}
+
+/* Alignment fixes */
+@media (max-width: 37.5em) {
+  .is-layout-flow > .alignright,
+  .is-layout-flow > .alignleft {
+      float: none;
+      margin: 2em 0;
+      display: block;
+  }
+  .is-layout-flow > .alignright img,
+  .is-layout-flow > .alignleft img {
+      margin: 0 auto;
+      display: block;
+  }
+}
+
+/* Media & Text Block */
+@media (max-width:800px) {
+  .wp-block-media-text.is-stacked-on-mobile {
+    grid-template-columns:100%!important
+  }
+  .wp-block-media-text.is-stacked-on-mobile>.wp-block-media-text__media {
+    grid-column:1;
+    grid-row:1
+  }
+  .wp-block-media-text.is-stacked-on-mobile>.wp-block-media-text__content {
+    grid-column:1;
+    grid-row:2
+  }
+}
+
+/* Author Block */
+.wp-block-post-author__byline {
+  font-size: var(--wp--preset--font-size--small);
+  display: inline;
+  margin-right: .25em;
+}
+
+.wp-block-post-author__name {
+  display: inline;
+}
+
+/* Header Styles */
+header .wp-block-navigation-item.wp-block-navigation-link a {
+  padding: .5rem;
+}
+header .wp-block-navigation-item.nav-cta.wp-block-navigation-link a {
+  background-color: var(--wp--preset--color--accent);
+  border-radius: 3px;
+  padding: .5rem 1rem;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .nav-cta .wp-block-navigation-item__content {
+  padding: .5rem 1rem;
+}
+@media (max-width:800px){
+  .wp-block-navigation__submenu-container li:not(:first-of-type) {
+      padding-top: 24px;
+  }
+}
+/* Override default breakpoint and continue with mobile styles past 600px */
+@media (min-width:600px){
+.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open){
+  display:none;
+}
+.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close{
+  display:block;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container{
+  left:auto;
+}
+.wp-block-navigation__responsive-container-open:not(.always-shown){
+  display:flex;
+}
+}
+/* Set your own breakpoint(s) for tablet/desktop layouts */
+@media (min-width:800px){
+.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open){
+  display:block;
+}
+.wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) .wp-block-navigation__responsive-container-close{
+  display:none;
+}
+.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container.wp-block-navigation__submenu-container{
+  left:0;
+}
+.wp-block-navigation__responsive-container-open:not(.always-shown){
+  display:none;
+}
+}
+
+/* Admin Bar Overrides */
+.admin-bar #lg-toolbar-1 {
+  top: 32px;
+}
+
+/* Gravity Forms */
+.gfield_date_dropdown_day,
+.gfield_date_dropdown_month,
+.gfield_date_dropdown_year{
+max-width: 33.33%;
+}
+
+/* Staff Page */
+.wp-block-query.staff-faculty,
+.wp-block-query.staff-admin {
+  margin: 0 0 4rem;
+}
