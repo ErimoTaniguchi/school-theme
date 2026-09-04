@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "school-blocks/company-phone",
+	"version": "1.0.0",
+	"title": "Company Phone",
+	"category": "text",
+	"icon": "location",
+	"description": "Output the company phone with an optional icon.",
+	"example": {},
+	"supports": {
+		"html": false,
+    "spacing": {
+			"margin": true,
+			"padding": true
+    },
+		"color": {
+			"text": true,
+			"background": true
+		},
+    "typography": {
+			"fontSize": true,
+			"textAlign": true
+    }
+	},
+	"attributes": {
+		"svgIcon": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "company-phone",
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
