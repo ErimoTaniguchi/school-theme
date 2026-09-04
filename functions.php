@@ -70,3 +70,9 @@ add_filter( 'image_size_names_choose', 'mindset_add_custom_image_sizes' );
 * Custom Post Types & Custom Taxonomies
 */
 require get_template_directory() . '/inc/post-types-taxonomies.php';
+
+// Register custom blocks
+function school_register_blocks() {
+    register_block_type( get_template_directory() . '/school-blocks/build/school-blocks' );
+}
+add_action( 'init', 'school_register_blocks' );
