@@ -1,0 +1,24 @@
+<?php
+// This file is generated. Do not modify it manually.
+return array(
+	'school-blocks' => array(
+		'$schema' => 'https://schemas.wp.org/trunk/block.json',
+		'apiVersion' => 3,
+		'name' => 'school-blocks/school-blocks',
+		'version' => '0.1.0',
+		'title' => 'School Blocks',
+		'category' => 'widgets',
+		'icon' => 'smiley',
+		'description' => 'Example block scaffolded with Create Block tool.',
+		'example' => array(
+			
+		),
+		'supports' => array(
+			'html' => false
+		),
+		'textdomain' => 'school-blocks',
+		'editorScript' => 'file:./index.js',
+		'viewStyle' => 'file:./style-index.css',
+		'viewScript' => 'file:./view.js'
+	)
+);
