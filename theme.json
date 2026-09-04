@@ -196,6 +196,9 @@
 			"caption": {
 				"color": {
 					"text": "var(--wp--preset--color--custom-contrast)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--noto-serif)"
 				}
 			},
 			"h1": {
@@ -252,6 +255,7 @@
 			}
 		},
 		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--noto-serif)",
 			"fontSize": "var(--wp--preset--font-size--small)",
 			"fontStyle": "normal",
 			"fontWeight": "400",

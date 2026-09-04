@@ -83,14 +83,14 @@ function school_register_custom_post_types() {
     'labels'             => $labels,
     'public'             => true,
     'show_in_rest'       => true,
-    'rewrite'            => array( 'slug' => 'staff' ),
+    'rewrite'            => array( 'slug' => 'staff-members' ),
     'has_archive'        => true,
     'hierarchical'       => false,
     'menu_position'      => 5,
     'menu_icon'          => 'dashicons-businessperson',
     'supports'           => array( 'title', 'editor', 'thumbnail' ),
     'template' => array(
-      array( 'core/paragraph', array( 'placeholder' => 'Add job title...' ) ),
+      array( 'core/paragraph', array( 'content' => '<em>Job Title</em>' ) ),
       array( 'core/paragraph', array( 'placeholder' => 'Add email address...' ) )
     ),
     'template_lock'      => 'all',
