@@ -19,5 +19,10 @@
 		"@wordpress/blocks": "latest",
 		"@wordpress/i18n": "latest",
 		"aos": "^2.3.4"
+	},
+	"devDependencies": {
+		"@wordpress/scripts": "^34.2.0",
+		"ajv": "^8.20.0",
+		"ajv-keywords": "^5.1.0"
 	}
 }
