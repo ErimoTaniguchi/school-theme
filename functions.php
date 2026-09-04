@@ -68,7 +68,7 @@ function school_add_custom_image_sizes( $size_names ) {
 add_filter( 'image_size_names_choose', 'school_add_custom_image_sizes' );
 
 // Load custom blocks.
-// require get_theme_file_path() . '/school-blocks/school-blocks.php';
+require get_theme_file_path() . '/school-blocks/school-blocks.php';
 
 /**
 * Custom Post Types & Custom Taxonomies

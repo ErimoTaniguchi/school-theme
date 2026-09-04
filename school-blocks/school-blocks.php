@@ -28,3 +28,39 @@ function school_blocks_school_blocks_block_init() {
 	wp_register_block_types_from_metadata_collection( __DIR__ . '/build', __DIR__ . '/build/blocks-manifest.php' );
 }
 add_action( 'init', 'school_blocks_school_blocks_block_init' );
+
+/**
+* Registers the custom fields for some blocks.
+*
+* @see https://developer.wordpress.org/reference/functions/register_post_meta/
+*/
+function school_register_custom_fields() {
+	register_post_meta(
+		'page',
+		'company_phone',
+		array(
+			'type'         => 'string',
+			'show_in_rest' => true,
+			'single'       => true
+		)
+	);
+	register_post_meta(
+		'page',
+		'company_email',
+		array(
+			'type'         => 'string',
+			'show_in_rest' => true,
+			'single'       => true
+		)
+	);
+	register_post_meta(
+		'page',
+		'company_address',
+		array(
+			'type'         => 'string',
+			'show_in_rest' => true,
+			'single'       => true
+		)
+	);
+}
+add_action( 'init', 'school_register_custom_fields' );
