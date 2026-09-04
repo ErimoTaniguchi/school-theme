@@ -47,6 +47,10 @@ function wpb_change_title_text( $title ){
     $title = 'Add student name';
   }
 
+  if  ( 'fwd-staff' == $screen->post_type ) {
+    $title = 'Add staff name';
+  }
+
   return $title;
 }
 add_filter( 'enter_title_here', 'wpb_change_title_text' );
