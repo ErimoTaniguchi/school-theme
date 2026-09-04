@@ -52,7 +52,6 @@ function school_register_custom_post_types() {
   );
   register_post_type( 'fwd-student', $args );
 
-
   // Add Student Category taxonomy
   $labels = array(
     'name'                  => _x( 'Student Categories', 'taxonomy general name', 'mindset-theme' ),

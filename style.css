@@ -144,3 +144,13 @@ max-width: 33.33%;
 .wp-block-query.staff-admin {
   margin: 0 0 4rem;
 }
+
+.student-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+  container-type: inline-size;
+  gap: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
