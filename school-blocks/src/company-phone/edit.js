@@ -21,7 +21,10 @@ import { useBlockProps, RichText, InspectorControls } from '@wordpress/block-edi
 *
 * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-core-data/#useentityprop
 */
-import { useEntityProp } from '@wordpress/core-data';
+import {
+	useEntityProp,
+	useEntityRecords,
+} from '@wordpress/core-data';
 
 /**
 * Provides pre-built UI components for creating block settings in the editor.
@@ -42,20 +45,50 @@ import { PanelBody, PanelRow, ToggleControl } from '@wordpress/components';
 *
 * @return {Element} Element to render.
 */
-export default function Edit( {attributes, setAttributes} ) {
+export default function Edit( { attributes, setAttributes } ) {
+	const { records: pages, isResolving } = useEntityRecords(
+		'postType',
+		'page',
+		{
+			slug: 'contact-info',
+			per_page: 1,
+		}
+	);
 
-	// Set the post ID of your Contact Page
-	const postID = 62;
+	if ( isResolving ) {
+		return <p>{ __( 'Loading contact information...', 'company-phone' ) }</p>;
+	}
 
-	// Fetch meta data as an object and the setMeta function
-	const [meta, setMeta] = useEntityProp('postType', 'page', 'meta', postID);
+	const contactPage = pages?.[0];
 
-	// Destructure all our meta data for ease of use
+	if ( ! contactPage ) {
+		return <p>{ __( 'Contact Info page not found.', 'company-phone' ) }</p>;
+	}
+
+	return (
+		<PhoneEditor
+			postID={ contactPage.id }
+			attributes={ attributes }
+			setAttributes={ setAttributes }
+		/>
+	);
+}
+
+function PhoneEditor( { postID, attributes, setAttributes } ) {
+	const [ meta, setMeta ] = useEntityProp(
+		'postType',
+		'page',
+		'meta',
+		postID
+	);
+
 	const { company_phone = '' } = meta || {};
 
-	// Flexible helper for setting a single meta value w/o mutating state
 	const updateMeta = ( key, value ) => {
-		setMeta( { ...meta, [key]: value } );
+		setMeta( {
+			...( meta || {} ),
+			[key]: value,
+		} );
 	};
 
 	const { svgIcon } = attributes;
@@ -63,18 +96,29 @@ export default function Edit( {attributes, setAttributes} ) {
 	return (
 		<>
 			<div { ...useBlockProps() }>
-				{ svgIcon &&
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" role="img" aria-label="Phone icon">
+				{ svgIcon && (
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						role="img"
+						aria-label="Phone icon"
+					>
 						<path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"></path>
 					</svg>
-				}
+				) }
+
 				<RichText
 					placeholder={ __( 'Enter phone here...', 'company-phone' ) }
 					tagName="p"
 					value={ company_phone }
-					onChange={ ( nextValue ) => updateMeta("company_phone", nextValue) }
+					onChange={ ( nextValue ) =>
+						updateMeta( 'company_phone', nextValue )
+					}
 				/>
 			</div>
+
 			<InspectorControls>
 				<PanelBody title={ __( 'Settings', 'company-phone' ) }>
 					<PanelRow>
@@ -84,7 +128,10 @@ export default function Edit( {attributes, setAttributes} ) {
 							onChange={ ( value ) =>
 								setAttributes( { svgIcon: value } )
 							}
-							help={ __( 'Display an SVG icon next to the phone.', 'company-phone' ) }
+							help={ __(
+								'Display an SVG icon next to the phone.',
+								'company-phone'
+							) }
 						/>
 					</PanelRow>
 				</PanelBody>
