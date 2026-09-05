@@ -1,4 +1,5 @@
 <?php
+
 function school_enqueues() {
   // Load normalize.css
   wp_enqueue_style(
@@ -55,28 +56,68 @@ function wpb_change_title_text( $title ){
 }
 add_filter( 'enter_title_here', 'wpb_change_title_text' );
 
-// Make custom sizes selectable from WordPress admin.
-function school_add_custom_image_sizes( $size_names ) {
-	$new_sizes = array(
-		'400x500' => __( '400x500', 'school-theme' ),
-		'200x250' => __( '200x250', 'school-theme' ),
-		'400x200' => __( '400x200', 'school-theme' ),
-		'800x400' => __( '800x400', 'school-theme' ),
-	);
-	return array_merge( $size_names, $new_sizes );
-}
-add_filter( 'image_size_names_choose', 'school_add_custom_image_sizes' );
-
-// Load custom blocks.
-// require get_theme_file_path() . '/school-blocks/school-blocks.php';
-
 /**
-* Custom Post Types & Custom Taxonomies
-*/
-require get_template_directory() . '/inc/post-types-taxonomies.php';
+ * Theme functions and definitions
+ *
+ * @package school-theme
+ */
 
-// Register custom blocks
-function school_register_blocks() {
-    register_block_type( get_template_directory() . '/school-blocks/build/school-blocks' );
+
+function enqueue_lightgallery_assets() {
+    // if ( is_front_page() ) {
+
+        wp_enqueue_style( 
+            'lightgallery-css', 
+            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css', 
+            array(), 
+            '2.7.2' 
+        );
+
+        wp_enqueue_style( 
+            'lightgallery-thumb-css', 
+            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css', 
+            array('lightgallery-css'), 
+            '2.7.2' 
+        );
+
+        wp_enqueue_style( 
+            'lightgallery-download-css', 
+            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery-css', 
+            array('lightgallery-css'), 
+            '2.7.2' 
+        );
+
+        wp_enqueue_script( 
+            'lightgallery-js', 
+            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js', 
+            array(), 
+            '2.7.2', 
+            true 
+        );
+
+        wp_enqueue_script( 
+            'lightgallery-thumb-js', 
+            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js', 
+            array('lightgallery-js'), 
+            '2.7.2', 
+            true 
+        );
+
+        wp_enqueue_script( 
+            'lightgallery-download-js', 
+            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/download/lg-download.min.js', 
+            array('lightgallery-js'), 
+            '2.7.2', 
+            true 
+        );
+
+        wp_enqueue_script( 
+            'lightgallery-init', 
+            get_template_directory_uri() . '/assets/js/lightgallery-init.js', 
+            array( 'lightgallery-js', 'lightgallery-thumb-js', 'lightgallery-download-js' ), 
+            '1.0.0', 
+            true 
+        );
+    // }
 }
-add_action( 'init', 'school_register_blocks' );
+add_action( 'wp_enqueue_scripts', 'enqueue_lightgallery_assets' );

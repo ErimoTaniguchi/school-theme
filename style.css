@@ -154,3 +154,15 @@ max-width: 33.33%;
   margin: 0;
   padding: 0;
 }
+
+
+/* Home Page */
+.lg-thumb-item.active {
+    border: 3px solid red !important;
+    border-radius: 0; 
+}
+
+
+.lg-thumb-item:hover {
+    border: 3px solid transparent; /
+}
