@@ -64,6 +64,7 @@ add_filter( 'enter_title_here', 'wpb_change_title_text' );
 
 
 function enqueue_lightgallery_assets() {
+
     // if ( is_front_page() ) {
 
         wp_enqueue_style( 
