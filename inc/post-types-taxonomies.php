@@ -127,9 +127,9 @@ function school_register_custom_post_types() {
     'hierarchical'      => true,
     'rewrite'           => array( 'slug' => 'staff-categories' ),
     'capabilities' => array(
-      'manage_terms' => 'manage_categories',
-      'edit_terms' => 'manage_categories',
-      'delete_terms' => 'manage_categories',
+      'manage_terms' => 'manage_options',
+      'edit_terms' => 'manage_options',
+      'delete_terms' => 'manage_options',
       'assign_terms' => 'edit_posts',
     ),
   );
