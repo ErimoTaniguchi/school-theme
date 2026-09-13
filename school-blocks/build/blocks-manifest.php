@@ -170,7 +170,7 @@ return array(
 		),
 		'textdomain' => 'school-blocks',
 		'editorScript' => 'file:./index.js',
-		'viewStyle' => 'file:./style-index.css',
+		'style' => 'file:./style-index.css',
 		'viewScript' => 'file:./view.js'
 	)
 );
