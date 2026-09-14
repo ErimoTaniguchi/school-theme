@@ -55,7 +55,7 @@ export default function Edit( { attributes, setAttributes } ) {
 				</PanelBody>
 			</InspectorControls>
 			
-			<div { ...blockProps }>
+			<div { ...blockProps } data-aos={ aosAnimation }>
 				<InnerBlocks />
 			</div>
 		</>
