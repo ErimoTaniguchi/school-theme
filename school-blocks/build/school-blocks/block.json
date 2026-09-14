@@ -8,6 +8,12 @@
   "icon": "smiley",
   "description": "Example block scaffolded with Create Block tool.",
   "example": {},
+  "attributes": {
+    "aosAnimation": {
+      "type": "string",
+      "default": "fade"
+    }
+  },
   "supports": {
     "html": false
   },

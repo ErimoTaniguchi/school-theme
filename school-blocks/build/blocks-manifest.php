@@ -165,6 +165,12 @@ return array(
 		'example' => array(
 			
 		),
+		'attributes' => array(
+			'aosAnimation' => array(
+				'type' => 'string',
+				'default' => 'fade'
+			)
+		),
 		'supports' => array(
 			'html' => false
 		),
