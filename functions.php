@@ -64,9 +64,7 @@ add_filter( 'enter_title_here', 'wpb_change_title_text' );
 
 
 function enqueue_lightgallery_assets() {
-
-    // if ( is_front_page() ) {
-
+    if ( is_front_page() ) {
         wp_enqueue_style( 
             'lightgallery-css', 
             'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery.min.css', 
@@ -77,13 +75,6 @@ function enqueue_lightgallery_assets() {
         wp_enqueue_style( 
             'lightgallery-thumb-css', 
             'https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lg-thumbnail.min.css', 
-            array('lightgallery-css'), 
-            '2.7.2' 
-        );
-
-        wp_enqueue_style( 
-            'lightgallery-download-css', 
-            'https://cdnjs.cloudflare.com/ajax/libs/lightgallery-css', 
             array('lightgallery-css'), 
             '2.7.2' 
         );
@@ -119,7 +110,7 @@ function enqueue_lightgallery_assets() {
             '1.0.0', 
             true 
         );
-    // }
+    }
 }
 add_action( 'wp_enqueue_scripts', 'enqueue_lightgallery_assets' );
 
