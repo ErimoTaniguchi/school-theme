@@ -8,11 +8,17 @@
     "icon": "smiley",
     "description": "Example block scaffolded with Create Block tool.",
     "example": {},
+    "attributes": {
+        "aosAnimation": {
+        "type": "string",
+        "default": "fade"
+        }
+    },
     "supports": {
         "html": false
     },
     "textdomain": "school-blocks",
     "editorScript": "file:./index.js",
-    "viewStyle": "file:./style-index.css",
+    "style": "file:./style-index.css",
     "viewScript": "file:./view.js"
 }

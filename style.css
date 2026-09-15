@@ -53,6 +53,12 @@ h1::after {
   }
 }
 
+
+
+.wp-block-navigation .wp-block-navigation-item.nav-cta span.wp-block-navigation-item__label {
+    color: #ffffff !important;
+}
+
 /* Media & Text Block */
 @media (max-width:800px) {
   .wp-block-media-text.is-stacked-on-mobile {
@@ -84,7 +90,7 @@ header .wp-block-navigation-item.wp-block-navigation-link a {
   padding: .5rem;
 }
 header .wp-block-navigation-item.nav-cta.wp-block-navigation-link a {
-  background-color: var(--wp--preset--color--accent);
+  background-color: var(--wp--preset--color--custom-accent);
   border-radius: 3px;
   padding: .5rem 1rem;
 }
